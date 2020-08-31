@@ -1,7 +1,9 @@
+// 属性、插槽、事件和函数参考文档 https://vuetifyjs.com/zh-Hans/components/app-bars/
 <template>
   <v-app-bar
     app
     flat
+    hide-on-scroll
   >
     <v-app-bar-nav-icon
       class="hidden-md-and-up"

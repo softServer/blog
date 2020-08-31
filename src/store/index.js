@@ -1,3 +1,4 @@
+// 数据存储交互
 import Vue from 'vue'
 import Vuex from 'vuex'
 
