@@ -6,7 +6,8 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
+  // base 默认值: "/"。应用的基路径。例如，如果整个单页应用服务在 /app/ 下，然后 base 就应该设为 "/app/"。
+  //base: process.env.BASE_URL,
   routes: [
     {
       path: '/',

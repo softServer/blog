@@ -13,5 +13,8 @@
     components: {
       Feed: () => import('@/components/Feed'),
     },
+    created () {
+      console.log("artcles")
+    }
   }
 </script>

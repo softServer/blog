@@ -38,5 +38,13 @@
 <script>
   export default {
     name: 'HomeBanner',
+    methods: {
+      showNum () {
+        console.log("banner")
+      }
+    },
+    created () {
+      this.showNum ()
+    }
   }
 </script>
