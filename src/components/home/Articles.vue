@@ -1,3 +1,4 @@
+<!-- slot 插槽 ： 标签中间的内容会拿来替换<slot>标签 </slot> -->
 <template>
   <section id="feed">
     <feed>

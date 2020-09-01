@@ -1,3 +1,4 @@
+<!-- base-card 怀疑是 v-card的一个具有基础工能的card组件 -->
 <template>
   <v-col
     cols="12"
@@ -56,6 +57,7 @@
   </v-col>
 </template>
 
+<!-- todo：深入理解vue组件和模板 -->
 <script>
   export default {
     name: 'FeedCard',

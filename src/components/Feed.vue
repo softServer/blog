@@ -1,3 +1,8 @@
+<!-- 栅格系统
+* v-container 提供了居中和水平填充网站内容的功能
+* v-row 是 v-col 的包装组件。
+* v-col 是内容所有者，必须是 v-row 的直接子集。
+ -->
 <template>
   <v-container>
     <v-row>
@@ -69,7 +74,9 @@
       page: 1,
     }),
 
+    // 计算属性 
     computed: {
+      // mapState通过扩展运算符将store.state.orderList 映射this.orderList
       ...mapState(['articles']),
       pages () {
         return Math.ceil(this.articles.length / 11)
@@ -78,6 +85,7 @@
         const start = (this.page - 1) * 11
         const stop = this.page * 11
 
+        // slice() 方法可从已有的数组中返回选定的元素，可提取字符串的某个部分
         return this.articles.slice(start, stop)
       },
     },
