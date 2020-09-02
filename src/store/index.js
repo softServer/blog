@@ -1,6 +1,7 @@
 // 数据存储交互
 import Vue from 'vue'
 import Vuex from 'vuex'
+import artcles from './modules/artcles'
 
 Vue.use(Vuex)
 
@@ -50,4 +51,7 @@ export default new Vuex.Store({
   actions: {
 
   },
+  modules: {
+    artcles
+  }
 })

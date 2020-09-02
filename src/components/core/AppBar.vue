@@ -58,6 +58,7 @@
     name: 'CoreAppBar',
 
     computed: {
+      // 将 store 中的 getter 映射到局部计算属性
       ...mapGetters(['links']),
     },
 
@@ -68,6 +69,12 @@
 
         if (item.to || !item.href) return
 
+        /**
+         *  $vuetify.goto(target, options)用于控制滚动。
+         * target可以是一个数字，表示距离页面顶端的像素距离；
+         * 还可以是一个CSS选择器字符串或者一个元素的引用，用来滚动到指定的元素处。
+         * options则是一个配置对象，属性有duration表示时间，easing表示缓和曲线效果，offset表示上下偏移量
+         */
         this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
       },
     },
