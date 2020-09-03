@@ -11,11 +11,15 @@ export default new Vuex.Store({
     drawer: false,
     items: [
       {
-        text: 'Home',
+        text: 'java',
         href: '#!',
       },
       {
-        text: 'About',
+        text: '旅行',
+        href: '#about',
+      },
+      {
+        text: '生活',
         href: '#about',
       },
     ],
@@ -41,7 +45,7 @@ export default new Vuex.Store({
       return categories.sort().slice(0, 4)
     },
     links: (state, getters) => {
-      return state.items.concat(getters.categories)
+      return state.items
     },
   },
   mutations: {

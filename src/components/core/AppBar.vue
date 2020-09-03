@@ -75,7 +75,8 @@
          * 还可以是一个CSS选择器字符串或者一个元素的引用，用来滚动到指定的元素处。
          * options则是一个配置对象，属性有duration表示时间，easing表示缓和曲线效果，offset表示上下偏移量
          */
-        this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
+        //this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
+        this.$router.replace(item)
       },
     },
   }

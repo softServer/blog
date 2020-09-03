@@ -1,3 +1,4 @@
+// 抽屉
 <template>
   <v-navigation-drawer
     v-model="drawer"
@@ -30,6 +31,7 @@
     name: 'CoreDrawer',
 
     computed: {
+      // 将 store 中的 getter 映射到局部计算属性
       ...mapGetters(['links']),
       drawer: {
         get () {
