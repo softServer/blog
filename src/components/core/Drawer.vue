@@ -1,4 +1,4 @@
-// 抽屉
+ <!-- 抽屉 -->
 <template>
   <v-navigation-drawer
     v-model="drawer"
@@ -14,7 +14,7 @@
         :href="link.href"
         @click="onClick($event, link)"
       >
-        <v-list-item-title v-text="link.text" />
+        <v-list-item-title v-text="link.name" />
       </v-list-item>
     </v-list>
   </v-navigation-drawer>

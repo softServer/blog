@@ -1,4 +1,5 @@
-// 属性、插槽、事件和函数参考文档 https://vuetifyjs.com/zh-Hans/components/app-bars/
+<!--  属性、插槽、事件和函数参考文档 https://vuetifyjs.com/zh-Hans/components/app-bars/ -->
+ <!-- 横条 当宽度足够时条目显示在顶部横向，当宽度不够时在通过“抽屉”页面的展示与否显示在侧面 -->
 <template>
   <v-app-bar
     app
@@ -30,7 +31,7 @@
           text
           @click="onClick($event, link)"
         >
-          {{ link.text }}
+          {{ link.name }}
         </v-btn>
 
         <v-spacer />
@@ -52,7 +53,9 @@
   import {
     mapGetters,
     mapMutations,
+    mapState,
   } from 'vuex'
+  import productApi from '@/api/product'
 
   export default {
     name: 'CoreAppBar',
@@ -62,8 +65,11 @@
       ...mapGetters(['links']),
     },
 
+    created() {
+      this.getCategoryList()
+    },
     methods: {
-      ...mapMutations(['toggleDrawer']),
+      ...mapMutations(['toggleDrawer', 'initItems']),
       onClick (e, item) {
         e.stopPropagation()
 
@@ -78,6 +84,18 @@
         //this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
         this.$router.replace(item)
       },
+      
+      // 请求服务器，将类目填充到items里
+      getCategoryList() {
+        console.log("this.$store.state.items.length:", this.$store.state.items.length)
+        if (this.$store.state.items.length === 0) {
+          productApi.getAllCategory().then(res => {
+            console.log("res:", res)
+            this.initItems(res.list)
+          }
+          )
+        }
+        },
     },
   }
 </script>

@@ -10,18 +10,18 @@ export default new Vuex.Store({
     articles: require('@/data/articles.json'),
     drawer: false,
     items: [
-      {
-        text: 'java',
-        href: '#!',
-      },
-      {
-        text: '旅行',
-        href: '#about',
-      },
-      {
-        text: '生活',
-        href: '#about',
-      },
+      // {
+      //   text: 'java',
+      //   href: '#!',
+      // },
+      // {
+      //   text: '旅行',
+      //   href: '#about',
+      // },
+      // {
+      //   text: '生活',
+      //   href: '#about',
+      // },
     ],
   },
   getters: {
@@ -51,6 +51,7 @@ export default new Vuex.Store({
   mutations: {
     setDrawer: (state, payload) => (state.drawer = payload),
     toggleDrawer: state => (state.drawer = !state.drawer),
+    initItems: (state, categoryList) => (state.items = categoryList)
   },
   actions: {
 
