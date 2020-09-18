@@ -1,7 +1,7 @@
 <template>
   <base-card dark>
     <v-img
-      :src="require('@/assets/articles/blurcamera.jpg')"
+      :src="require('@/assets/articles/fighting.jpg')"
       class="grey lighten-2"
       height="400"
       width="100%"
@@ -14,20 +14,22 @@
           cols="12"
           md="7"
           offset-md="5"
+          @click="showNum"
         >
           <h1 class="display-3 font-weight-light">
-            The Art Of Travel
+            Only Fight
           </h1>
 
           <div class="subheading text-uppercase pl-2 mb-4">
-            Finding Beauty, One flight at a time
+           只有奋力一战，fighting
           </div>
 
           <v-btn
             color="primary"
             depressed
+            @click.stop="showNum"
           >
-            Subscribe
+          app下载
           </v-btn>
         </v-col>
       </v-row>
@@ -45,6 +47,6 @@
     },
     created () {
       this.showNum ()
-    }
+    },
   }
 </script>
