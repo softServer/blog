@@ -69,12 +69,10 @@
       this.getCategoryList()
     },
     methods: {
-      ...mapMutations(['toggleDrawer', 'initItems']),
+      ...mapMutations(['toggleDrawer', 'initItems', 'setActiveCategory']),
       onClick (e, item) {
+        // 停止传播
         e.stopPropagation()
-
-        if (item.to || !item.href) return
-
         /**
          *  $vuetify.goto(target, options)用于控制滚动。
          * target可以是一个数字，表示距离页面顶端的像素距离；
@@ -82,7 +80,10 @@
          * options则是一个配置对象，属性有duration表示时间，easing表示缓和曲线效果，offset表示上下偏移量
          */
         //this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
-        this.$router.replace(item)
+        // this.$router.replace(item)
+        console.log("this.$store.state.activeCategory1:", this.$store.state.activeCategory)
+        this.setActiveCategory(item);
+        console.log("this.$store.state.activeCategory2:", this.$store.state.activeCategory)
       },
       
       // 请求服务器，将类目填充到items里

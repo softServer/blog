@@ -23,6 +23,9 @@ export default new Vuex.Store({
       //   href: '#about',
       // },
     ],
+    activeCategory: {
+
+    },
   },
   getters: {
     categories: state => {
@@ -51,8 +54,12 @@ export default new Vuex.Store({
   mutations: {
     setDrawer: (state, payload) => (state.drawer = payload),
     toggleDrawer: state => (state.drawer = !state.drawer),
-    initItems: (state, categoryList) => (state.items = categoryList)
+    initItems: (state, categoryList) => {
+      state.items = categoryList
+      state.activeCategory = categoryList[0]
   },
+  setActiveCategory: (state, category) => (state.activeCategory = category),
+},
   actions: {
 
   },

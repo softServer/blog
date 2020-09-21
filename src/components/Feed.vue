@@ -95,5 +95,11 @@
         window.scrollTo(0, 0)
       },
     },
+    methods: {
+        // 查询文章列表
+        getArticleList(categoryId, pageNum) {
+
+        }
+    },
   }
 </script>
