@@ -10,6 +10,9 @@ export default new Vuex.Store({
     drawer: false,
     items: [
     ],
+    category: {
+
+    },
   },
   getters: {
     categories: state => {
@@ -50,7 +53,7 @@ export default new Vuex.Store({
   actions: {
 
   },
-  modules: {
-    artcles
-  }
+  // modules: {
+  //   artcles
+  // }
 })

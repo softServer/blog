@@ -107,5 +107,11 @@
         // 重新请求articles
       }
     },
+    methods: {
+        // 查询文章列表
+        getArticleList(categoryId, pageNum) {
+
+        }
+    },
   }
 </script>

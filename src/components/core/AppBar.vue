@@ -70,7 +70,9 @@
     },
     methods: {
       ...mapMutations(['toggleDrawer', 'initItems', 'activeCategory']),
+     // ...mapMutations(['toggleDrawer', 'initItems', 'setActiveCategory']),
       onClick (e, item) {
+        // 停止传播
         e.stopPropagation()
         this.activeCategory(item)
         /**
@@ -80,7 +82,10 @@
          * options则是一个配置对象，属性有duration表示时间，easing表示缓和曲线效果，offset表示上下偏移量
          */
         //this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
-        this.$router.replace(item)
+        // this.$router.replace(item)
+        // console.log("this.$store.state.activeCategory1:", this.$store.state.activeCategory)
+        // this.setActiveCategory(item);
+        // console.log("this.$store.state.activeCategory2:", this.$store.state.activeCategory)
       },
       
       // 请求服务器，将类目填充到items里
