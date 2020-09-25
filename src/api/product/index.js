@@ -13,5 +13,8 @@ export default {
       "parentId": parentId
     }
     return api.post(urls.categoryLevelList, data)
-  }
+  },
+  getArticleList (data) {
+    return api.get(urls.articleList, data);
+  },
 }

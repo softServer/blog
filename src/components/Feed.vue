@@ -11,7 +11,7 @@
       </v-col>
 
       <feed-card
-        v-for="(article, i) in paginatedArticles"
+        v-for="(article, i) in articles"
         :key="article.title"
         :size="layout[i]"
         :value="article"
@@ -60,7 +60,10 @@
   // Utilities
   import {
     mapState,
+    mapGetters,
   } from 'vuex'
+
+  import productApi from '@/api/product'
 
   export default {
     name: 'Feed',
@@ -70,30 +73,39 @@
     },
 
     data: () => ({
-      layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
       page: 1,
+      articles: []
     }),
-
+    created() {
+      intitArticles()
+    },
     // 计算属性 
     computed: {
       // mapState通过扩展运算符将store.state.orderList 映射this.orderList
-      ...mapState(['articles']),
-      pages () {
-        return Math.ceil(this.articles.length / 11)
-      },
-      paginatedArticles () {
-        const start = (this.page - 1) * 11
-        const stop = this.page * 11
-
-        // slice() 方法可从已有的数组中返回选定的元素，可提取字符串的某个部分
-        return this.articles.slice(start, stop)
-      },
+      //...mapState(['activeCategory']),
+      ...mapGetters(['category']),
     },
-
+    methods: {
+      intitArticles () {
+        let data = {
+          "categoryId": this.category.id,
+          "pageNum": page,
+          "pageSize": 10
+        }
+        productApi.getArticleList(data).than(res => {
+          console.log("articleList:", res)
+          this.articles = res.list
+        })
+      }
+    },
     watch: {
       page () {
         window.scrollTo(0, 0)
       },
+      category () {
+        // 清理page
+        // 重新请求articles
+      }
     },
   }
 </script>

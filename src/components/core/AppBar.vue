@@ -69,12 +69,10 @@
       this.getCategoryList()
     },
     methods: {
-      ...mapMutations(['toggleDrawer', 'initItems']),
+      ...mapMutations(['toggleDrawer', 'initItems', 'activeCategory']),
       onClick (e, item) {
         e.stopPropagation()
-
-        if (item.to || !item.href) return
-
+        this.activeCategory(item)
         /**
          *  $vuetify.goto(target, options)用于控制滚动。
          * target可以是一个数字，表示距离页面顶端的像素距离；
