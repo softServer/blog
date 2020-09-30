@@ -68,7 +68,7 @@
                 <v-list-item-title>EMAIL</v-list-item-title>
 
                 <v-list-item-subtitle>
-                  THEARTOFTRAVEL@GMAIL.COM
+                  jie1wolf@sina.com
                 </v-list-item-subtitle>
               </v-list-item>
 
@@ -85,7 +85,7 @@
                 <v-list-item-title>ADDRESS</v-list-item-title>
 
                 <v-list-item-subtitle>
-                  1234 WORLD DR. HERE, TX 76123
+                  1234 WORLD DR. HERE, TX 76123（假的）
                 </v-list-item-subtitle>
               </v-list-item>
 
@@ -102,7 +102,7 @@
                 <v-list-item-title>PHONE</v-list-item-title>
 
                 <v-list-item-subtitle>
-                  555-789-1234
+                  18602512803
                 </v-list-item-subtitle>
               </v-list-item>
             </v-list>
@@ -117,4 +117,5 @@
   export default {
     name: 'HomeSubscribe',
   }
+  // 注册用户
 </script>

@@ -10,8 +10,9 @@
       dark
       href="#!"
     >
+    <!-- :src="require(`@/assets/articles/${value.hero}`)" -->
       <v-img
-        :src="require(`@/assets/articles/${value.hero}`)"
+        :src="value.articleBanner"
         height="100%"
         gradient="rgba(0, 0, 0, .42), rgba(0, 0, 0, .42)"
       >
@@ -28,15 +29,15 @@
               small
               @click.stop=""
             >
-              {{ value.category }}
+              {{ value.categoryNameTree }}
             </v-chip>
 
             <h3 class="title font-weight-bold mb-2">
-              {{ value.title }}
+              {{ value.articleName }}
             </h3>
 
             <div class="caption">
-              {{ value.author }}<br>Date
+              {{ value.userId }}<br>Date
             </div>
           </v-col>
 

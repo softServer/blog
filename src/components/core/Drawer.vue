@@ -8,13 +8,13 @@
   >
     <v-list>
       <v-list-item
-        v-for="(link, i) in links"
+        v-for="(catyegory, i) in categories"
         :key="i"
-        :to="link.to"
-        :href="link.href"
-        @click="onClick($event, link)"
+        :to="catyegory.to"
+        :href="catyegory.href"
+        @click="onClick($event, catyegory)"
       >
-        <v-list-item-title v-text="link.name" />
+        <v-list-item-title v-text="catyegory.name" />
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -32,7 +32,9 @@
 
     computed: {
       // 将 store 中的 getter 映射到局部计算属性
-      ...mapGetters(['links']),
+      categories() {
+        return this.$store.state.categories
+      },
       drawer: {
         get () {
           return this.$store.state.drawer
@@ -44,19 +46,10 @@
     },
 
     methods: {
-      ...mapMutations(['setDrawer']),
+      ...mapMutations(['setDrawer', 'activeCategory']),
       onClick (e, item) {
         e.stopPropagation()
-
-        if (item.to === '/') {
-          this.$vuetify.goTo(0)
-          this.setDrawer(false)
-          return
-        }
-
-        if (item.to || !item.href) return
-
-        this.$vuetify.goTo(item.href)
+        this.activeCategory(item)
         this.setDrawer(false)
       },
     },

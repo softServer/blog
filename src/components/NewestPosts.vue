@@ -2,7 +2,7 @@
   <v-container class="pa-0">
     <base-subheading>Newest Blog Posts</base-subheading>
 
-    <v-row
+    <!-- <v-row
       v-for="(article, i) in articles.slice(11, 14)"
       :key="i"
       align="center"
@@ -29,7 +29,7 @@
           </div>
         </div>
       </v-col>
-    </v-row>
+    </v-row> -->
   </v-container>
 </template>
 

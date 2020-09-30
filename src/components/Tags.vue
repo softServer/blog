@@ -3,7 +3,7 @@
     <base-subheading>Tags</base-subheading>
 
     <v-chip
-      v-for="(category, i) in categories"
+      v-for="(category, i) in getCategories"
       :key="i"
       class="mr-2"
       color="secondary"
@@ -12,7 +12,7 @@
       tag
       text-color="white"
     >
-      {{ category.text }}
+      {{ category.name }}
     </v-chip>
   </v-container>
 </template>
@@ -25,7 +25,7 @@
     name: 'Tags',
 
     computed: {
-      ...mapGetters(['categories']),
+      ...mapGetters(['getCategories']),
     },
   }
 </script>

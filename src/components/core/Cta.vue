@@ -15,7 +15,8 @@
     top
   >
     <v-icon>
-      mdi-vuetify
+      <!-- v-icon https://cdn.materialdesignicons.com/4.9.95/ -->
+      mdi-vpn mdi-spin
     </v-icon>
   </v-btn>
 </template>

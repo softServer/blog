@@ -24,14 +24,14 @@
         />
 
         <v-btn
-          v-for="(link, i) in links"
+          v-for="(category, i) in categories"
           :key="i"
-          v-bind="link"
+          v-bind="category"
           class="hidden-sm-and-down"
           text
-          @click="onClick($event, link)"
+          @click="onClick($event, category)"
         >
-          {{ link.name }}
+          {{ category.name }}
         </v-btn>
 
         <v-spacer />
@@ -62,19 +62,23 @@
 
     computed: {
       // 将 store 中的 getter 映射到局部计算属性
-      ...mapGetters(['links']),
+      //...mapGetters(['getCategories']),
+      categories() {
+        return this.$store.state.categories
+      }
     },
 
     created() {
       this.getCategoryList()
     },
     methods: {
-      ...mapMutations(['toggleDrawer', 'initItems', 'activeCategory']),
+      ...mapMutations(['toggleDrawer', 'initCategories', 'activeCategory']),
      // ...mapMutations(['toggleDrawer', 'initItems', 'setActiveCategory']),
       onClick (e, item) {
         // 停止传播
         e.stopPropagation()
         this.activeCategory(item)
+        
         /**
          *  $vuetify.goto(target, options)用于控制滚动。
          * target可以是一个数字，表示距离页面顶端的像素距离；
@@ -90,11 +94,12 @@
       
       // 请求服务器，将类目填充到items里
       getCategoryList() {
-        console.log("this.$store.state.items.length:", this.$store.state.items.length)
-        if (this.$store.state.items.length === 0) {
+        console.log("this.$store.state.items.length:", this.$store.state.categories.length)
+        if (this.$store.state.categories.length === 0) {
           productApi.getAllCategory().then(res => {
             console.log("res:", res)
-            this.initItems(res.list)
+            this.initCategories(res.list)
+            console.log("this.$store.state.categories:", this.$store.state.categories)
           }
           )
         }
