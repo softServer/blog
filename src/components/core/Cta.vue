@@ -8,7 +8,7 @@
     color="secondary"
     fab
     fixed
-    href="https://store.vuetifyjs.com/product/blog-theme-free"
+    href="http://diy-bgm.88ac.top/"
     rel="noopener"
     right
     target="_blank"

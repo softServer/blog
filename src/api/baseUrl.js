@@ -5,10 +5,10 @@ switch (process.env.NODE_ENV) {
     baseUrl = 'http://127.0.0.1:8881' // 开发环境url
     break
   case 'pre':
-    baseUrl = 'https://pre-server.feleti.cn' // 预上线环境url
+    baseUrl = 'http://127.0.0.1:8881' // 预上线环境url
     break
   case 'production':
-    baseUrl = 'https://api.feleti.cn' // 生产环境url
+    baseUrl = '/api' // 生产环境url
     break
 }
 export default baseUrl
